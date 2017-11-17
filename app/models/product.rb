@@ -4,9 +4,9 @@ class Product < ApplicationRecord
 
   # scope :status, -> (status) { where status: status }
   # scope :location, -> (name) { where("name like ?", "#{name}%")}
-  # scope :index, -> (page) { order("make ASC").paginate(:page => page, :per_page => 10) }
-  # scope :only_makes, -> (make_parameter) { where("make like ?", "%#{make_parameter}%")}
-  # scope :search, -> (search) { where("make like ? OR model like ? OR year like ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")}
+  scope :index, -> (page) { order("name ASC").paginate(:page => page, :per_page => 10) }
+  # scope :only_names, -> (name_parameter) { where("name like ?", "%#{name_parameter}%")}
+  # scope :search, -> (search) { where("name like ? OR model like ? OR year like ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")}
   #
   # before_save :downcase_fields
   #

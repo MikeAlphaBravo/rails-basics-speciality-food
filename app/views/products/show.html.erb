@@ -1,0 +1,24 @@
+<h1><%= @product.name %></h1>
+<h3><%= @product.cost %></h3>
+<h4>A product of <%= @product.origin %></h4>
+<%= link_to "Edit Product", edit_product_path, :class => "btn btn-warning mb-1" %>
+<%= link_to "Delete Product", product_path(@product),
+    :class => "btn btn-danger mb-1",
+    :data => {:confirm => "Are you sure?",
+                :method => "delete"}%>
+<%= image_tag @product.link, :class => "img-fluid"%>
+
+<% if @product.comments.any? %>
+  <ul>
+    <% @product.comments.each do |comment| %>
+      <li>
+        <%= comment.comment %>
+        <%= comment.origin %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no comments yet!</p>
+<% end %>
+
+<p><%= link_to "Add a comment", new_product_comment_path(@product) %></p>
