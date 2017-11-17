@@ -42,8 +42,8 @@ class ProductsController < ApplicationController
     end
   end
 
-  def comments
-    @comments = Comment.includes(:products).all
+  def reviews
+    @reviews = Review.includes(:products).all
   end
 
 

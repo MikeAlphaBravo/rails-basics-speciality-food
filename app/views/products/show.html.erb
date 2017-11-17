@@ -7,17 +7,18 @@
     :data => {:confirm => "Are you sure?",
                 :method => "delete"}%>
 
-<% if @product.comments.any? %>
+<% if @product.reviews.any? %>
   <ul>
-    <% @product.comments.each do |comment| %>
+    <% @product.reviews.each do |review| %>
       <li>
-        <%= comment.comment %>
-        <%= comment.origin %>
+        <%= review.author %>
+        <%= review.content %>
+        <%= review.rating %>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p>There are no comments yet!</p>
+  <p>There are no reviews yet!</p>
 <% end %>
 
-<p><%= link_to "Add a comment", new_product_comment_path(@product) %></p>
+<p><%= link_to "Add a review", new_product_review_path(@product) %></p>
