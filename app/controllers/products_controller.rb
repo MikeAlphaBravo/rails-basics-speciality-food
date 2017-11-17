@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.index(params[:page])
-    # @products = Product.all.order("make ASC")
-    @products = @products.only_makes(params[:make]) if params[:make].present?
+    # @products = Product.all.order("name ASC")
+    @products = @products.only_names(params[:name]) if params[:name].present?
     @products = @products.search(params[:search]) if params[:search].present?
   end
 
